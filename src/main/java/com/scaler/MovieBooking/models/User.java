@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -16,10 +17,8 @@ import java.util.List;
 @Entity(name = "users")
 
 public class User extends BaseModel {
-    private String name;
-    private String email;
+    @Getter
+    private String userName;
     private String password;
 
-//    @OneToMany
-   // private List<Ticket> tickets;
 }

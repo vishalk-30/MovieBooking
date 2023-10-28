@@ -1,9 +1,7 @@
 package com.scaler.MovieBooking.models;
 
 import com.scaler.MovieBooking.enums.BookingStatus;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -15,9 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Booking extends BaseModel{
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     private User user;
+
     @ManyToOne
     private Show show;
     @ManyToMany

@@ -1,12 +1,11 @@
 package com.scaler.MovieBooking.models;
 
-import com.scaler.MovieBooking.enums.Language;
 import com.scaler.MovieBooking.enums.MovieFeature;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.OneToMany;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +13,15 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Movie extends BaseModel{
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(toBuilder = true)
+public class Screen extends BaseModel {
+
     private String name;
-    private Double rating;
-
-    @ElementCollection
-    @Enumerated
-    private List<Language> languages = new ArrayList<>();
-
+    @OneToMany
+    private List<Seat> seats = new ArrayList<>();
     @ElementCollection
     @Enumerated
     private List<MovieFeature> features = new ArrayList<>();
-
 }
-

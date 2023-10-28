@@ -1,28 +1,30 @@
 package com.scaler.MovieBooking.models;
 
-import com.scaler.MovieBooking.models.constant.BaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
-public class Show extends BaseModel {
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@Entity(name = "shows")
+public class Show extends BaseModel{
     @ManyToOne
     private Movie movie;
-
-    @ManyToOne
-    private Auditorium auditorium;
-
+    private Date startTime;
+    private int duration;
     @OneToMany
-    private List<ShowSeat> showSeats;
+    private List<ShowSeat> showSeats = new ArrayList<>();
+    @ManyToOne
+    private Screen screen;
+
+
+
 }

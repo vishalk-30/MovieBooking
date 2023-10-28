@@ -1,20 +1,21 @@
 package com.scaler.MovieBooking.models;
 
-import com.scaler.MovieBooking.models.constant.BaseModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
+@Entity
 public class City extends BaseModel {
-    @Column(name = "CityName")
+
     private String name;
+
     @OneToMany
-    private List<Theatre> theatres;
+    private List<Theatre> theatres = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package com.scaler.MovieBooking.models.constant;
+package com.scaler.MovieBooking.enums;
 
 public enum MovieFeature {
     TWO_D,

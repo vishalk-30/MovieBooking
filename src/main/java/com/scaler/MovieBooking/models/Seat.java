@@ -1,23 +1,21 @@
 package com.scaler.MovieBooking.models;
 
-import com.scaler.MovieBooking.models.constant.BaseModel;
-import com.scaler.MovieBooking.models.constant.SeatStatus;
-import com.scaler.MovieBooking.models.constant.SeatType;
+import com.scaler.MovieBooking.enums.SeatType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 public class Seat extends BaseModel {
-    private String seatNumber;
 
-    @Enumerated(EnumType.STRING)
+    private int rowNo;
+    private int colNo;
+
+    @Enumerated
     private SeatType seatType;
-
-    @Enumerated(EnumType.STRING)
-    private SeatStatus seatStatus;
 }

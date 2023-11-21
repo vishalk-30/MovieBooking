@@ -1,6 +1,7 @@
 package com.scaler.MovieBooking.controller;
 
 import com.scaler.MovieBooking.dto.CreateCustomerDTO;
+import com.scaler.MovieBooking.dto.GetCustomerDTO;
 import com.scaler.MovieBooking.exception.CustomerNotFoundException;
 
 import com.scaler.MovieBooking.exception.EmailAlreadyExistException;
@@ -24,6 +25,7 @@ public class CustomerController {
         return  customerService.getCustomer(id);
 
     }
+
     @PostMapping
     public Customer createCustomer(@RequestBody CreateCustomerDTO request) throws InvalidCustomerException, EmailAlreadyExistException {
         validate(request);

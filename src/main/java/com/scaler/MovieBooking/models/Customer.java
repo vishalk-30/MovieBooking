@@ -1,8 +1,12 @@
 package com.scaler.MovieBooking.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,7 +19,10 @@ public class Customer extends BaseModel{
     private String city;
     private String phoneNumber;
     private String email;
+
     @OneToOne
     private User user;
+
+
 
 }

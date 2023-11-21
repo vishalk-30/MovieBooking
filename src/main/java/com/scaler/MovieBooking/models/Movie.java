@@ -5,8 +5,7 @@ import com.scaler.MovieBooking.enums.MovieFeature;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +13,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Movie extends BaseModel{
     private String name;
     private Double rating;

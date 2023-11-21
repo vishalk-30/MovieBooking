@@ -1,6 +1,7 @@
 package com.scaler.MovieBooking.service;
 
 import com.scaler.MovieBooking.dto.CreateCustomerDTO;
+import com.scaler.MovieBooking.dto.GetCustomerDTO;
 import com.scaler.MovieBooking.exception.CustomerNotFoundException;
 
 import com.scaler.MovieBooking.exception.EmailAlreadyExistException;
@@ -10,6 +11,7 @@ import com.scaler.MovieBooking.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.security.PublicKey;
 import java.util.Optional;
 
 @Service
@@ -18,11 +20,13 @@ public class CustomerService {
     private CustomerRepository customerRepository;
     private UserService userService;
     public Customer getCustomer(int id) throws CustomerNotFoundException {
+
         return customerRepository
                 .findById(id)
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found for id:" + id));
-
     }
+
+
     public Customer createCustomer(CreateCustomerDTO request) throws EmailAlreadyExistException {
 
         // check email for duplication

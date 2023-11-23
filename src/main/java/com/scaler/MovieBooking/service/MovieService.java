@@ -32,4 +32,8 @@ public class MovieService {
                 .orElseThrow(() -> new MovieNotFoundException("Movie Not Found for the id: " + movieId));
 
     }
+
+    public Movie getMovieInternal(int movieId){
+        return movieRepository.findById(movieId).orElse(null);
+    }
 }

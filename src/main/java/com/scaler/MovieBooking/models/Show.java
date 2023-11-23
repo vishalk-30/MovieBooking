@@ -1,6 +1,8 @@
 package com.scaler.MovieBooking.models;
 
+import com.scaler.MovieBooking.enums.Language;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.*;
@@ -24,6 +26,8 @@ public class Show extends BaseModel{
     private List<ShowSeat> showSeats = new ArrayList<>();
     @ManyToOne
     private Screen screen;
+    @Enumerated
+    private Language language;
 
 
 

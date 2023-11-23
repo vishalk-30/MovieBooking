@@ -3,6 +3,7 @@ package com.scaler.MovieBooking.models;
 import com.scaler.MovieBooking.enums.SeatType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Getter
@@ -18,4 +19,7 @@ public class Seat extends BaseModel {
 
     @Enumerated
     private SeatType seatType;
+
+    @ManyToOne
+    private Screen screen;
 }

@@ -15,4 +15,11 @@ public class ShowSeatService {
     public void create(List<ShowSeat> showSeats) {
         showSeatRepository.saveAll(showSeats);
     }
+    public List<ShowSeat> getShowSeatInternal(List<Integer> ids){
+        return showSeatRepository.findAllById(ids);
+    }
+
+    public void saveAll(List<ShowSeat> lockedSeats) {
+        showSeatRepository.saveAll(lockedSeats);
+    }
 }

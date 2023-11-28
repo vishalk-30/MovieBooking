@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Builder
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShowSeat extends BaseModel{
@@ -19,4 +19,5 @@ public class ShowSeat extends BaseModel{
     private Seat seat;
     @Enumerated
     private SeatStatus seatStatus;
+
 }

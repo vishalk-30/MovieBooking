@@ -26,6 +26,14 @@ public class CustomerService {
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found for id:" + id));
     }
 
+    public Customer getCustomerInternal(int id)  {
+
+        return customerRepository
+                .findById(id)
+                .orElse(null);
+    }
+
+
 
     public Customer createCustomer(CreateCustomerDTO request) throws EmailAlreadyExistException {
 

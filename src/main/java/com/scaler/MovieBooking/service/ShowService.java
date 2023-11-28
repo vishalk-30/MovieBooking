@@ -60,4 +60,10 @@ public class ShowService {
                 .orElseThrow(() -> new ShowNotFoundException(" Show not found for the id; " +  id));
 
     }
+    public Show getShowInternal(int id){
+        return showRepository
+                .findById(id)
+                .orElse(null);
+
+    }
 }

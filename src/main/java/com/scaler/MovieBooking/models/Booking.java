@@ -12,12 +12,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 @Entity
 public class Booking extends BaseModel{
     @ManyToOne
-    @JoinColumn(name = "movie_id")
-    private User user;
+    private Customer customer;
 
     @ManyToOne
     private Show show;

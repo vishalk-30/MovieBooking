@@ -19,13 +19,4 @@ import java.util.List;
 public class User extends BaseModel {
     private String userName;
     private String password;
-
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    @OneToMany(mappedBy = "user")
-    private List<Booking> bookings = new ArrayList<>();
-
 }

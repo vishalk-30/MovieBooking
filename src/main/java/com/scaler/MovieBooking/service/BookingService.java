@@ -11,6 +11,7 @@ import com.scaler.MovieBooking.models.ShowSeat;
 import com.scaler.MovieBooking.repository.BookingRepository;
 import com.scaler.MovieBooking.strategies.PricingStrategy;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ public class BookingService {
     private CustomerService customerService;
     private ShowService showService;
     private ShowSeatService showSeatService;
+    @Qualifier("seatBasedStrategy")
     private PricingStrategy pricingStrategy;
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Booking createBooking(CreateBookingDTO bookingRequest){

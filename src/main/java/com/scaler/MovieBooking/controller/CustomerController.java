@@ -1,7 +1,6 @@
 package com.scaler.MovieBooking.controller;
 
 import com.scaler.MovieBooking.dto.CreateCustomerDTO;
-import com.scaler.MovieBooking.dto.GetCustomerDTO;
 import com.scaler.MovieBooking.exception.CustomerNotFoundException;
 
 import com.scaler.MovieBooking.exception.EmailAlreadyExistException;
@@ -9,7 +8,6 @@ import com.scaler.MovieBooking.exception.InvalidCustomerException;
 import com.scaler.MovieBooking.models.Customer;
 import com.scaler.MovieBooking.service.CustomerService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

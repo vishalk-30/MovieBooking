@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserService {
     private UserRepository userRepository;
+    private BcryptEncoder bcryptEncoder;
     public User createUser(String userName, String password){
-        User user = new User(userName,password);
+        String hashedPassword = bcryptEncoder.encode(password);
+        User user = new User(userName,hashedPassword);
         return userRepository.save(user);
     }
 }

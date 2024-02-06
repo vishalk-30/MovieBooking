@@ -11,7 +11,5 @@ import java.util.List;
 public class CreateTheatreDTO {
     private String name;
     private String address;
-    private int row;
-    private int col;
-    private List<MovieFeature> features;
+    List<Integer> screenId;
 }

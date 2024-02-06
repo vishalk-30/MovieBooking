@@ -15,4 +15,8 @@ public class SeatService {
     public List<Seat> getAll(int screenId){
         return seatRepository.findAllByScreen_Id(screenId);
     }
+
+    public Seat createSeat(Seat seat){
+        return seatRepository.save(seat);
+    }
 }

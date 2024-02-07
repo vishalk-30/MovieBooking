@@ -22,4 +22,9 @@ public class ShowSeatService {
     public void saveAll(List<ShowSeat> lockedSeats) {
         showSeatRepository.saveAll(lockedSeats);
     }
+
+    public void save(ShowSeat lockedSeat) {
+        showSeatRepository.save(lockedSeat);
+
+    }
 }

@@ -8,6 +8,7 @@ import com.scaler.MovieBooking.repository.ShowRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -41,13 +42,26 @@ public class ShowService {
                 .startTime(request.getStartTime())
                 .build();
 
+        showRepository.save(show);
+
+
         List<Seat> seats = seatService.getAll(screen.getId());
-        List<ShowSeat> showSeats = seats.stream().map(
+        System.out.println(seats);
+        /*List<ShowSeat> showSeats = seats.stream().map(
                 seat -> ShowSeat.builder()
                         .seat(seat)
                         .show(show)
                         .seatStatus(SeatStatus.AVAILABLE)
-                        .build()).toList();
+                        .build()).toList();*/
+        List<ShowSeat> showSeats = new ArrayList<>();
+        for(Seat seat: seats){
+            ShowSeat showSeat = ShowSeat.builder()
+                    .seat(seat)
+                    .show(show)
+                    .seatStatus(SeatStatus.AVAILABLE)
+                    .build();
+            showSeats.add(showSeat);
+        }
 
         showSeatService.create(showSeats);
         return show;

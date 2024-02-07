@@ -34,6 +34,7 @@ public class ScreenService {
         Screen screen = Screen.builder()
                 .name(screenDTO.getScreenName())
                 .build();
+        screenRepository.save(screen);
 
         List<Seat> seats = new ArrayList<>();
         for (int i = 0; i < screenDTO.getTotalRow(); i++) {
@@ -41,6 +42,7 @@ public class ScreenService {
                 Seat seat = Seat.builder()
                         .rowNo(i)
                         .colNo(j)
+                        .screen(screen)
                         .seatType(SeatType.SILVER)
                         .build();
                 seatService.createSeat(seat);
@@ -50,8 +52,8 @@ public class ScreenService {
 
 
         }
-        screen = screen.toBuilder().seats(seats).build();
-        return screenRepository.save(screen);
+        //screen = screen.toBuilder().seats(seats).build();
+        return screen;
     }
 
     }

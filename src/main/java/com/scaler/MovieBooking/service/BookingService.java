@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -57,11 +58,18 @@ public class BookingService {
         }
 
         // if available mark the seats as locked
-        List<ShowSeat> lockedSeats = showSeats.stream().map(seat -> seat.toBuilder()
+        /*List<ShowSeat> lockedSeats = showSeats.stream().map(seat -> showSeats.toBuilder()
                 .seatStatus(SeatStatus.LOCKED)
-                .build()).toList();
+                .build()).toList();*/
+        List<ShowSeat> lockedSeats = new ArrayList<>();
+        for(ShowSeat seat: showSeats){
+            seat.setSeatStatus(SeatStatus.LOCKED);
+            lockedSeats.add(seat);
+
+        }
 
         showSeatService.saveAll(lockedSeats);
+
 
 
         Booking booking = Booking.builder()
@@ -69,7 +77,6 @@ public class BookingService {
                 .show(show)
                 .bookedDate(new Date())
                 .bookingStatus(BookingStatus.PENDING)
-                .showSeats(lockedSeats)
                 .build();
 
         Double amount = pricingStrategy.calculatePrice(booking,lockedSeats);

@@ -16,8 +16,7 @@ import java.util.List;
 @Entity
 public class Booking extends BaseModel{
     @ManyToOne
-    private Customer customer
-            ;
+    private Customer customer;
 
     @ManyToOne
     private Show show;
